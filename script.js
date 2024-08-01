@@ -43,6 +43,7 @@ function choose(choice) {
         "Spam the fifth person in your DMs for 20 seconds of keyboard spam",
         "Act like a chicken until your next turn",
         "Show the last five people you texted and what the messages said.",
+        "Fly to russia, by a bottle of vodka, and drink it"
     ];
 
     let hard_dare = [
