@@ -159,6 +159,8 @@ function handleSignUp(event) {
 function handleLogin(event) {
     event.preventDefault();
 
+    console.log(users);
+    
     const username = document.getElementById("loginUsername").value;
     const password = document.getElementById("loginPassword").value;
 
@@ -170,7 +172,13 @@ function handleLogin(event) {
         alert("Invalid username or password. Please try again.");
     }
 }
-
+const interval = setInterval(function () {
+    console.log("Click me!");
+  }, 500);
+  
+  setTimeout(function () {
+    clearInterval(interval);
+  }, 5000);
 // Attach the functions to the form submit events
 document.getElementById("signUpForm").addEventListener("submit", handleSignUp);
-// document.getElementById("loginForm").addEventListener("submit", handleLogin);
+document.getElementById("loginForm").addEventListener("submit", handleLogin);
