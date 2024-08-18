@@ -86,70 +86,87 @@ function choose(choice) {
     }
 }
 
-function handleInput() {
-    const userInput = document.getElementById("userInput").value;
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
 
-    greet(firstName, lastName);
-    console.log(userInput); // Print the current input to the console
+document.addEventListener("DOMContentLoaded", function() {
 
-    const start = document.getElementById("start");
-    start.addEventListener("mouseleave", function () {
-        start.textContent = "Start";
-        start.style.backgroundColor = "lightblue";
-    });
+    function handleInput() {
+        const userInput = document.getElementById("userInput").value;
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
 
-    if (userInput === "Hi") {
-        console.log("User said exactly: " + userInput);
-    } else {
-        console.log("User did not say the expected phrase.");
+        greet(firstName, lastName);
+        console.log(userInput); // Print the current input to the console
+
+        const start = document.getElementById("start");
+        start.addEventListener("mouseleave", function () {
+            start.textContent = "Start";
+            start.style.backgroundColor = "lightblue";
+        });
+
+        if (userInput === "Hi") {
+            console.log("User said exactly: " + userInput);
+        } else {
+            console.log("User did not say the expected phrase.");
+        }
     }
-}
-// function Signup() {
-//     // This array is to store the data of the users and in the log in function we are going to check if they exist here
-//     const users = [
-//         {firstname: "Ethan", lastname: "Fan", password: "Ethandontknowwhattochoose", username: "heheha", ssn: "123 456 789", ccn: "1234 5678 9012 3456"},
-//         {firstname: "Fozhan", lastname: "Baba", password: "Foojboo", username: "foojboo", ssn: "123 456 789", ccn: "1234 5678 9012 3456"},
-//     ];
-//     const firstname = document.getElementById("signUpFirstName").value;
-//     const lastname = document.getElementById("signUpLastName").value;
-//     const username = document.getElementById("signUpUsername").value;
-//     const social = document.getElementById("signUpSocialSecurity").value;
-//     const credit = document.getElementById("signUpCreditCard").value;
+    // function Signup() {
+    //     // This array is to store the data of the users and in the log in function we are going to check if they exist here
+    //     const users = [
+    //         {firstname: "Ethan", lastname: "Fan", password: "Ethandontknowwhattochoose", username: "heheha", ssn: "123 456 789", ccn: "1234 5678 9012 3456"},
+    //         {firstname: "Fozhan", lastname: "Baba", password: "Foojboo", username: "foojboo", ssn: "123 456 789", ccn: "1234 5678 9012 3456"},
+    //     ];
+    //     const firstname = document.getElementById("signUpFirstName").value;
+    //     const lastname = document.getElementById("signUpLastName").value;
+    //     const username = document.getElementById("signUpUsername").value;
+    //     const social = document.getElementById("signUpSocialSecurity").value;
+    //     const credit = document.getElementById("signUpCreditCard").value;
 
-// }
+    // }
 
-// Create an object to store user data
-let users = {};
+    // Create an object to store user data
+    let users = {};
 
-// Function to handle the sign-up process
-function handleSignUp(event) {
-    event.preventDefault();
+    // Function to handle the sign-up process
+    function handleSignUp(event) {
+        event.preventDefault();
 
-    const firstname = document.getElementById("signUpFirstName").value;
-    const lastname = document.getElementById("signUpLastName").value;
-    const username = document.getElementById("signUpUsername").value;
-    const password = document.getElementById("signUpPassword").value;
-    const social = document.getElementById("signUpSocialSecurity").value;
-    const credit = document.getElementById("signUpCreditCard").value;
+        const firstname = document.getElementById("signUpFirstName").value;
+        const lastname = document.getElementById("signUpLastName").value;
+        const username = document.getElementById("signUpUsername").value;
+        const password = document.getElementById("signUpPassword").value;
+        const social = document.getElementById("signUpSocialSecurity").value;
+        const credit = document.getElementById("signUpCreditCard").value;
 
-    if (username in users) {
-        alert("Username already exists. Please choose a different username.");
-        return;
+        if (username in users) {
+            alert("Username already exists. Please choose a different username.");
+            return;
+        }
+
+        // Store the user data in the users object
+        users[username] = {
+            firstname: firstname,
+            lastname: lastname,
+            password: password,
+            social: social,
+            credit: credit
+        };
+
+        alert("Sign up successful!");
+
+        // Optionally, redirect to login page after successful sign up
+        window.location.href = "login.html";
     }
 
-    // Store the user data in the users object
-    users[username] = {
-        firstname: firstname,
-        lastname: lastname,
-        password: password,
-        social: social,
-        credit: credit
-    };
+    // Function to handle the login process
+    function handleLogin(event) {
+        event.preventDefault();
 
-    alert("Sign up successful!");
+        console.log(users);
+        
+        const username = document.getElementById("loginUsername").value;
+        const password = document.getElementById("loginPassword").value;
 
+<<<<<<< Updated upstream
     // Optionally, redirect to login page after successful sign up
     window.location.href = "login.html";
 }
@@ -173,3 +190,24 @@ function handleLogin(event) {
 // Attach the functions to the form submit events
 document.getElementById("signUpForm").addEventListener("submit", handleSignUp);
 // document.getElementById("loginForm").addEventListener("submit", handleLogin);
+=======
+        if (username in users && users[username].password === password) {
+            alert("Login successful!");
+            // Redirect to the home page or another page after successful login
+            window.location.href = "index.html";
+        } else {
+            alert("Invalid username or password. Please try again.");
+        }
+    }
+    const interval = setInterval(function () {
+        console.log("Click me!");
+    }, 500);
+    
+    setTimeout(function () {
+        clearInterval(interval);
+    }, 5000);
+    // Attach the functions to the form submit events
+    document.getElementById("signUpForm").addEventListener("submit", handleSignUp);
+    document.getElementById("loginForm").addEventListener("submit", handleLogin);
+});
+>>>>>>> Stashed changes
