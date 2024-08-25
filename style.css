@@ -84,13 +84,15 @@ input {
 }
 
 .navbar {
+  margin: 30px;
+
   overflow: hidden;
-  background-color: #062b74;
+  background-color: #aecef1;
   position: fixed;
   /* Set the navbar to fixed position */
   top: 0;
   /* Position the navbar at the top of the page */
-  width: 100%;
+  width: 95%;
   /* Full width */
 }
 
@@ -104,7 +106,7 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: #ee803e;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
