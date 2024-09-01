@@ -262,5 +262,8 @@ li a:hover {
 #helpb{
   position: absolute; 
   left: calc(100% - 100px); 
-  /* top: 17px; */
+}
+#infob{
+  position: absolute; 
+  left: calc(100% - 250px); 
 }
