@@ -267,3 +267,8 @@ li a:hover {
   position: absolute; 
   left: calc(100% - 250px); 
 }
+#logo{
+  position: absolute; 
+  left: calc(50% - 100px);
+  top: -30px; 
+}
