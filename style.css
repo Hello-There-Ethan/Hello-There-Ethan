@@ -5,8 +5,8 @@
 }
 
 body {
-  background-image: url("Cool_Background.jpg");
-  background-size: cover;
+  background-color:#ffb6b6
+  /* background-size: cover; */
   min-height: 100vh;
   margin: 0;
 }
