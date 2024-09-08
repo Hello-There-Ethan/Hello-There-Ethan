@@ -121,64 +121,127 @@ function handleInput() {
 
 // }
 
-// Create an object to store user data
-let users = {};
+// // Create an object to store user data
+// let users = {};
 
-// Function to handle the sign-up process
-function handleSignUp(event) {
-    event.preventDefault();
+// // Function to handle the sign-up process
+// function handleSignUp(event) {
+//     event.preventDefault();
 
-    const firstname = document.getElementById("signUpFirstName").value;
-    const lastname = document.getElementById("signUpLastName").value;
-    const username = document.getElementById("signUpUsername").value;
-    const password = document.getElementById("signUpPassword").value;
-    const social = document.getElementById("signUpSocialSecurity").value;
-    const credit = document.getElementById("signUpCreditCard").value;
+//     const firstname = document.getElementById("signUpFirstName").value;
+//     const lastname = document.getElementById("signUpLastName").value;
+//     const username = document.getElementById("signUpUsername").value;
+//     const password = document.getElementById("signUpPassword").value;
+//     const social = document.getElementById("signUpSocialSecurity").value;
+//     const credit = document.getElementById("signUpCreditCard").value;
 
-    if (username in users) {
-        alert("Username already exists. Please choose a different username.");
-        return;
-    }
+//     if (username in users) {
+//         alert("Username already exists. Please choose a different username.");
+//         return;
+//     }
 
-    // Store the user data in the users object
-    users[username] = {
-        firstname: firstname,
-        lastname: lastname,
-        password: password,
-        social: social,
-        credit: credit
-    };
+//     // Store the user data in the users object
+//     users[username] = {
+//         firstname: firstname,
+//         lastname: lastname,
+//         password: password,
+//         social: social,
+//         credit: credit
+//     };
 
-    alert("Sign up successful!");
+//     alert("Sign up successful!");
 
-    // Optionally, redirect to login page after successful sign up
-    window.location.href = "login.html";
-}
+//     // Optionally, redirect to login page after successful sign up
+//     window.location.href = "login.html";
+// }
 
-// Function to handle the login process
-function handleLogin(event) {
-    event.preventDefault();
+// // Function to handle the login process
+// function handleLogin(event) {
+//     event.preventDefault();
 
-    console.log(users);
+//     console.log(users);
     
-    const username = document.getElementById("loginUsername").value;
-    const password = document.getElementById("loginPassword").value;
+//     const username = document.getElementById("loginUsername").value;
+//     const password = document.getElementById("loginPassword").value;
 
-    if (username in users && users[username].password === password) {
-        alert("Login successful!");
-        // Redirect to the home page or another page after successful login
-        window.location.href = "index.html";
-    } else {
-        alert("Invalid username or password. Please try again.");
-    }
-}
-const interval = setInterval(function () {
-    console.log("Click me!");
-  }, 500);
+//     if (username in users && users[username].password === password) {
+//         alert("Login successful!");
+//         // Redirect to the home page or another page after successful login
+//         window.location.href = "index.html";
+//     } else {
+//         alert("Invalid username or password. Please try again.");
+//     }
+// }
+// const interval = setInterval(function () {
+//     console.log("Click me!");
+//   }, 500);
   
-  setTimeout(function () {
-    clearInterval(interval);
-  }, 5000);
-// Attach the functions to the form submit events
-document.getElementById("signUpForm").addEventListener("submit", handleSignUp);
-document.getElementById("loginForm").addEventListener("submit", handleLogin);
+//   setTimeout(function () {
+//     clearInterval(interval);
+//   }, 5000);
+// // Attach the functions to the form submit events
+// document.getElementById("signUpForm").addEventListener("submit", handleSignUp);
+// document.getElementById("loginForm").addEventListener("submit", handleLogin);
+
+
+const form = document.querySelector("form");
+const input = document.querySelector("input");
+const ol = document.querySelector("ol");
+
+let editing = false;
+let editingItem;
+let list = [];
+
+if (localStorage.getItem("list") != null) {
+  list = JSON.parse(localStorage.getItem("list"));
+  for (let i = 0; i < list.length; i++) {
+    ol.innerHTML += `
+  <li>
+    <p>${list[i]}</p>
+    <div>
+      <i class="fa-solid fa-pen-to-square" onClick="editItem(this)"></i>
+      <i class="fa-solid fa-trash" onClick="deleteItem(this)"></i>
+    </div>
+  </li>`;
+  }
+}
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!editing) {
+    ol.innerHTML += `
+  <li>
+    <p>${input.value}</p>
+    <div>
+      <i class="fa-solid fa-pen-to-square" onClick="editItem(this)"></i>
+      <i class="fa-solid fa-trash" onClick="deleteItem(this)"></i>
+    </div>
+  </li>`;
+    list.push(input.value);
+    localStorage.setItem("list", JSON.stringify(list));
+    input.value = "";
+  } else {
+    editingItem.textContent = input.value;
+    input.value = "";
+    editing = false;
+    list = Array.from(document.querySelectorAll("li p")).map(
+      (p) => p.textContent
+    );
+    localStorage.setItem("list", JSON.stringify(list));
+  }
+});
+
+// const editItem = (item) => {
+//   editing = true;
+//   editingItem = item.parentElement.previousElementSibling;
+//   input.value = editingItem.textContent;
+// };
+
+// const deleteItem = (item) => {
+//   item.parentElement.parentElement.remove();
+//   list = Array.from(document.querySelectorAll("li p")).map(
+//     (p) => p.textContent
+//   );
+//   localStorage.setItem("list", JSON.stringify(list));
+// };
