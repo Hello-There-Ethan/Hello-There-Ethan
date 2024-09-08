@@ -271,7 +271,7 @@ li a:hover {
   width: 90px;
   height: 50px;
   background-color: #f5ee9e;
-
+}
 #helpb{
   position: absolute; 
   left: calc(100% - 100px); 
