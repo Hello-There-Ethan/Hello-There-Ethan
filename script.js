@@ -194,6 +194,7 @@ let list = [];
 
 if (localStorage.getItem("list") != null) {
   list = JSON.parse(localStorage.getItem("list"));
+
   for (let i = 0; i < list.length; i++) {
     ol.innerHTML += `
   <li>
@@ -208,22 +209,24 @@ if (localStorage.getItem("list") != null) {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  const username = document.getElementById("loginUsername").value;
+  const password = document.getElementById("loginPassword").value;
 
   if (!editing) {
     ol.innerHTML += `
   <li>
-    <p>${input.value}</p>
+    <p>${username}</p>
     <div>
       <i class="fa-solid fa-pen-to-square" onClick="editItem(this)"></i>
       <i class="fa-solid fa-trash" onClick="deleteItem(this)"></i>
     </div>
   </li>`;
-    list.push(input.value);
+    list.push(username);
     localStorage.setItem("list", JSON.stringify(list));
-    input.value = "";
+    username = "";
   } else {
-    editingItem.textContent = input.value;
-    input.value = "";
+    editingItem.textContent = username;
+    username = "";
     editing = false;
     list = Array.from(document.querySelectorAll("li p")).map(
       (p) => p.textContent
@@ -235,7 +238,7 @@ form.addEventListener("submit", (event) => {
 // const editItem = (item) => {
 //   editing = true;
 //   editingItem = item.parentElement.previousElementSibling;
-//   input.value = editingItem.textContent;
+//   username = editingItem.textContent;
 // };
 
 // const deleteItem = (item) => {

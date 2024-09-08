@@ -6,7 +6,7 @@
 
 body {
   /* background-image: url("Cool_Background.jpg"); */
-  background-color: #FFB6B6;
+  background-color: rgba(255, 182, 182, 0.758);
   background-size: cover;
   min-height: 100vh;
   margin: 0;
@@ -14,7 +14,7 @@ body {
 #secondb{
   min-height: 100vh;
   margin: 15px 15px;
-  background-color: #FFFDD0;
+  background-color: #fffddd;
 }
 
 #AD {
