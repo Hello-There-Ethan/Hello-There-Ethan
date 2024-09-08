@@ -7,10 +7,16 @@
 body {
   background-color:#ffb6b6;
   /* background-size: cover; */
-  min-height: 100vh;
-  margin: 0;
-}
+  /* background-image: url("Cool_Background.jpg"); */
+  background-color: #FFB6B6;
+  background-size: cover;
 
+}
+#secondb{
+  min-height: 100vh;
+  margin: 15px 15px;
+  background-color: #FFFDD0;
+}
 
 #AD {
   width: 80px;
@@ -31,9 +37,9 @@ a {
   color: black;
 }
 
-a:hover {
+/* a:hover {
   background-color: yellow;
-}
+} */
 
 select {
   width: 200px;
@@ -84,13 +90,15 @@ input {
 }
 
 .navbar {
+  margin: 30px;
+
   overflow: hidden;
-  background-color: #062b74;
+  background-color: #aecef1;
   position: fixed;
   /* Set the navbar to fixed position */
   top: 0;
   /* Position the navbar at the top of the page */
-  width: 100%;
+  width: 95%;
   /* Full width */
 }
 
@@ -104,7 +112,7 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: #ee803e;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -257,9 +265,38 @@ li a:hover {
   height: 50px;
   background-color: #f5ee9e;
 }
+
 #signupb{
   margin-left:50px;
   width: 90px;
   height: 50px;
   background-color: #f5ee9e;
+
+#helpb{
+  position: absolute; 
+  left: calc(100% - 100px); 
+}
+#infob{
+  position: absolute; 
+  left: calc(100% - 250px); 
+}
+#logo{
+  position: absolute; 
+  left: calc(50% - 100px);
+  top: -30px; 
+}
+#signupbuttonhome{
+  position: absolute; 
+  /* color: ; */
+  left: calc(100% - 200px);
+  bottom: 120px; 
+  width: 90px;
+  height: 50px;
+}
+#loginbuttonhome{
+  position: absolute; 
+  left: calc(100% - 200px);
+  bottom: 50px; 
+  width: 90px;
+  height: 50px;
 }
