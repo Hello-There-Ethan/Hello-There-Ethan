@@ -5,11 +5,12 @@
 }
 
 body {
+  background-color:#ffb6b6;
+  /* background-size: cover; */
   /* background-image: url("Cool_Background.jpg"); */
   background-color: rgba(255, 182, 182, 0.758);
   background-size: cover;
-  min-height: 100vh;
-  margin: 0;
+
 }
 #secondb{
   min-height: 100vh;
@@ -264,6 +265,13 @@ li a:hover {
   height: 50px;
   background-color: #f5ee9e;
 }
+
+#signupb{
+  margin-left:50px;
+  width: 90px;
+  height: 50px;
+  background-color: #f5ee9e;
+
 #helpb{
   position: absolute; 
   left: calc(100% - 100px); 

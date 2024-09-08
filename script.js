@@ -31,7 +31,6 @@ function choose(choice) {
         "Wear socks on your hands for the next 3 rounds.",
         "Make a funny face and keep it that way until your next turn.",
         "Slap the first person in your DM's in the face",
-        "Kill yourself"
     ];
 
     let medium_dare = [
